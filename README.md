@@ -5,3 +5,7 @@ npm init -y // para iniciar o projeto
 
 npm install fastify
 
+ npm install postgres
+
+ npm install dotenv -D
+

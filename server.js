@@ -1,15 +1,16 @@
 import { fastify } from "fastify";
-import { DatabaseMemory } from './database-memory.js';
+import { DatabasePostgres } from "./database-postgres.js";
+import { sql } from "./db.js";
 
 const server = fastify() 
 
-const database = new DatabaseMemory()
+const database = new DatabasePostgres()
 
-server.post('/videos', (req, res) => {
+ server.post('/videos', async (req, res) => {
 
     const {title, description, duration } = req.body
 
-    database.create({
+    await database.create({
         title: title,
         description: description,
         duration: duration
@@ -18,19 +19,19 @@ server.post('/videos', (req, res) => {
     return res.status(201).send()
 })
 
-server.get('/videos', (req, res) => {
-    const videos = database.list()
+server.get('/videos', async (req, res) => {
+    const videos = await database.list()
 
     return videos
 
 
 })
 
-server.put('/videos/:id', (req, res) => {
+server.put('/videos/:id', async (req, res) => {
     const videoId = req.params.id
     const {title, description, duration } = req.body
 
-    const video = database.update(videoId, {
+    await database.update(videoId, {
         title, 
         description, 
         duration
@@ -40,10 +41,10 @@ server.put('/videos/:id', (req, res) => {
 
 })
 
-server.delete('/videos/:id', () => {
+server.delete('/videos/:id', async (req, res) => {
     const videoId = req.params.id
 
-    database.delete(videoId)
+    await database.delete(videoId)
 
     return res.status(204).send()
 
@@ -56,5 +57,5 @@ server.delete('/videos/:id', () => {
 server.listen({
     port: 3000
 },()=>{
-    console.log('server is running F*#$')
+    console.log('server is running dude')
 })

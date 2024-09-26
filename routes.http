@@ -2,22 +2,22 @@ POST http://localhost:3000/videos
 Content-Type: application/json
 
 {
-    "title":"video 01",
-    "description": "esse e o primeiro video",
-        "duration": 180
+    "title":"video 03",
+    "description": "esse e o sla qual  video",
+        "duration": 18890
 }
 
 ###
 GET  http://localhost:3000/videos
 
 ###
-PUT http://localhost:3000/videos/e4d7ef8f-91d3-486a-9b9a-20e9ccad742f
+PUT http://localhost:3000/videos/131cb2e5-b15e-400e-b27d-09ce22c7c1a6
 Content-Type: application/json
 
 {  
-    "title": "video 02",
-    "description": "esse e o primeiro video atualizado bb vem fogao",
-    "duration": 180
+    "title": "video 001",
+    "description": "esse e o primeiro video atualizado bb vem que vem chama que chama",
+    "duration": 420
 }
 ###
-DELETE http://localhost:3000/videos/10c29059-5378-4522-bb5e-1a00434f5d7d
+DELETE http://localhost:3000/videos/ed49d307-b75a-495a-976f-b56448c16aea

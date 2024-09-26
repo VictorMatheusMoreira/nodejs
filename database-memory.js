@@ -15,7 +15,7 @@ export class DatabaseMemory {
             }
         })
     }
-     // o metodo MAP server para percorrer array e fazer alteracoes
+     
     create(video){
         const videoId = randomUUID() // universal unique id or unique universal id lol
 
